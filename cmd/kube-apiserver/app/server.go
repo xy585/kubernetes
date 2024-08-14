@@ -172,7 +172,7 @@ func CreateServerChain(config CompletedConfig) (*aggregatorapiserver.APIAggregat
 		return nil, err
 	}
 	crdAPIEnabled := config.ApiExtensions.GenericConfig.MergedResourceConfig.ResourceEnabled(apiextensionsv1.SchemeGroupVersion.WithResource("customresourcedefinitions"))
-
+	//New主要构造相关的GenericAPIServer，前一个的GenericAPIServer作为后一个的delegationTarget属性，delegationTarget指定了该Server会委派的另一个Server
 	kubeAPIServer, err := config.KubeAPIs.New(apiExtensionsServer.GenericAPIServer)
 	if err != nil {
 		return nil, err
