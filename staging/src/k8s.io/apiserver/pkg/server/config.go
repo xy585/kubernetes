@@ -107,7 +107,7 @@ const (
 
 // Config is a structure used to configure a GenericAPIServer.
 // Its members are sorted roughly in order of importance for composers.
-type Config struct {
+type Config struct {   //generic api server config 真正的Config，其他Config都是对其的封装
 	// SecureServing is required to serve https
 	SecureServing *SecureServingInfo
 
